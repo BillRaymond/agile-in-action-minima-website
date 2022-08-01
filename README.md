@@ -1,2 +1,4 @@
-# agile-in-action-minima-website
-Website for the minima site
+# agile-in-action-minima
+Working space to migrate Agile in Action to the Minima theme
+
+Workflows slowly getting added
