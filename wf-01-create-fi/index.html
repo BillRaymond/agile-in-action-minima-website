@@ -3,28 +3,43 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Agile in Action with Bill Raymond Podcast</title>
+  <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:creator" content="@billraymonde" />
+    <meta name="twitter:title" content="">
+    <meta name="twitter:image" content="https://billraymond.github.io/agile-in-action-minima/uploads/index.png">
+    <meta property="og:image" content="https://billraymond.github.io/agile-in-action-minima/uploads/index.png">
+    <meta property="og:description" content=""/>
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="675">
   <link rel="icon" href="/agile-in-action-minima/assets/agile-in-action-logos/agile-in-action-favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="/agile-in-action-minima/assets/main.css"></head>
+  <link rel="stylesheet" href="/agile-in-action-minima/assets/main.css">
+</head>
 <body><header class="site-header" role="banner">
 
-  <div class="wrapper"><a class="site-banner" rel="author" href="/agile-in-action-minima/" alt="The Agile in Action Podcast with Bill Raymond">
+  <div class="wrapper"><a class="site-banner" rel="author" href="/agile-in-action-minima/" alt="The Agile in Action with Bill Raymond Podcast">
       <img src="/agile-in-action-minima/assets/agile-in-action-logos/agile-in-action-large-horizontal.png" alt="The Agile in Action Podcast with Bill Raymond logo">
     </a>
 
-    <nav>
-        <ul><li><a class="page-link" href="/agile-in-action-minima/about/">About</a></li><li><a class="page-link" href="/agile-in-action-minima/become-a-guest/">Become a guest</a></li><li><a class="page-link" href="/agile-in-action-minima/contact/">Contact Us</a></li><li><a class="page-link" href="/agile-in-action-minima/wf-01-create-fi/">Create featured images</a></li><li><a class="page-link" href="/agile-in-action-minima/wf-00-guest-images-fi/">Workflow for featured images</a></li></ul>
-      </nav></div>
+    
+      <nav>
+        <ul><li><a class="page-link" href="/agile-in-action-minima/index">Home</a></li><li><a class="page-link" href="/agile-in-action-minima/learn-more">Learn More</a></li><li><a class="page-link" href="/agile-in-action-minima/sponsors">Sponsors</a></li></ul>
+      </nav>
+  </div>
 </header>
 <main class="page-content" aria-label="Content">
       <div class="wrapper">
         <article class="post">
 
   <header class="post-header">
-    <h1 class="post-title">Create featured images</h1>
+    <h1 class="post-title"></h1>
   </header>
 
   <div class="post-content">
-    <p>The code contained in this folder will read guest images and perform various steps to create a featured image</p>
+    <h2 id="create-featured-images">Create featured images</h2>
+
+<p>The code contained in this folder will read guest images and perform various steps to create a featured image</p>
 
 <h2 id="todo">TODO:</h2>
 <ul>
@@ -47,7 +62,7 @@
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># note: make sure to run chmod +x script-name in the final solution.sh
 
 # The following code is for four guests. The code will adjust for one, two, three, or four (no more than 4)
-magick convert sc-template.png `# load template background image`\
+magick convert fi-template.png `# load template background image`\
     \( face.png -resize 282x282 -set page +256+205 \) \
     -layers flatten `# merge the template, play, and guests layers`\
     -font './share-card-creator/fonts/ProximaNovaA-Bold.ttf' `# load the font`\
@@ -64,9 +79,9 @@ magick convert sc-template.png `# load template background image`\
     -geometry +550+446 `# Set the x and y position of the guest names`\
     -composite `# Add guest names to the image`\
     +write sc-no-play.png \
-    -page +972+448 sc-play.png `# load play icon image`\
+    -page +972+448 fi-play-icon.png `# load play icon image`\
     -layers flatten \
-    sc-play.png
+    fi-play-icon.png
 </code></pre></div></div>
 
 <h2 id="specs-for-guests">Specs for GUESTS</h2>
@@ -121,7 +136,97 @@ magick convert sc-template.png `# load template background image`\
 <h2 id="testing-code">Testing code</h2>
 <p>This section creates the variables to use depending on the number of guests and guest titles</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Title: Exciting Agile in Action podcast news
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Title: Introducing the Development Manager: A Scrum Master's best friend
+
+
+
+
+
+Title: The Importance of psychological safety in the workplace
+
+
+
+
+
+Title: Update for November 2022
+
+
+
+
+
+Title: Update for November 2022
+
+
+
+
+
+Title: Starting in a new company as a Scrum Master
+
+
+
+
+
+Title: The critical role of leadership and change management with agile transformations
+
+
+
+
+
+Title: November 1, 2022 Update
+
+
+
+
+
+Title: What makes SCRUM work when done correctly
+
+
+
+
+
+Title: Introducing the Seasons of SCRUM
+
+
+
+
+
+Title: Leading change with GRIT and communicating with integrity
+
+
+
+
+
+Title: Editor's Pick! Embracing a remote work culture
+
+
+
+
+
+Title: Dealing with change while operating at the speed of light
+
+
+
+
+
+Title: The 2-year anniversary Agile in Action podcast retrospective
+
+
+
+
+
+Title: Quality agile delivery with external stakeholders
+
+
+
+
+
+Title: How executive leaders create the space for agile to flourish
+
+
+
+
+
+Title: Exciting Agile in Action podcast news
 
 
 
@@ -505,7 +610,199 @@ Title: Team topologies and an obsession over a rapid flow of change
 <h2 id="test-code">Test code</h2>
 <p>This section can be used to debug locally before adjusting the shell script.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Title: Exciting Agile in Action podcast news
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Title: Introducing the Development Manager: A Scrum Master's best friend
+Size(new): 4
+First image: /uploads/ender-yuksel.jpeg
+Second image: /uploads/martin-lohmann.jpeg
+Third image: /uploads/seasons-of-scrum-text.png
+Fourth image: /uploads/ad-spoke-and-wheel.png
+
+    guest-photo: /agile-in-action-minima/uploads/ender-yuksel.jpeg
+    filename: ender-yuksel.jpeg
+
+    guest-photo: /agile-in-action-minima/uploads/martin-lohmann.jpeg
+    filename: martin-lohmann.jpeg
+
+    guest-photo: /agile-in-action-minima/uploads/seasons-of-scrum-text.png
+    filename: seasons-of-scrum-text.png
+
+    guest-photo: /agile-in-action-minima/uploads/ad-spoke-and-wheel.png
+    filename: ad-spoke-and-wheel.png
+
+
+Title: The Importance of psychological safety in the workplace
+Size(new): 2
+First image: /uploads/richard-mclean.jpeg
+Second image: /uploads/ad-spoke-and-wheel.png
+Third image: 
+Fourth image: 
+
+    guest-photo: /agile-in-action-minima/uploads/richard-mclean.jpeg
+    filename: richard-mclean.jpeg
+
+    guest-photo: /agile-in-action-minima/uploads/ad-spoke-and-wheel.png
+    filename: ad-spoke-and-wheel.png
+
+
+Title: Update for November 2022
+Size(new): 1
+First image: /uploads/holiday-dinner-v2.png
+Second image: 
+Third image: 
+Fourth image: 
+
+    guest-photo: /agile-in-action-minima/uploads/holiday-dinner-v2.png
+    filename: holiday-dinner-v2.png
+
+
+Title: Update for November 2022
+Size(new): 1
+First image: /uploads/holiday-dinner-v2.png
+Second image: 
+Third image: 
+Fourth image: 
+
+    guest-photo: /agile-in-action-minima/uploads/holiday-dinner-v2.png
+    filename: holiday-dinner-v2.png
+
+
+Title: Starting in a new company as a Scrum Master
+Size(new): 3
+First image: /uploads/aysegul-onal.jpeg
+Second image: /uploads/ad-spoke-and-wheel.png
+Third image: /uploads/seasons-of-scrum.png
+Fourth image: 
+
+    guest-photo: /agile-in-action-minima/uploads/aysegul-onal.jpeg
+    filename: aysegul-onal.jpeg
+
+    guest-photo: /agile-in-action-minima/uploads/ad-spoke-and-wheel.png
+    filename: ad-spoke-and-wheel.png
+
+    guest-photo: /agile-in-action-minima/uploads/seasons-of-scrum.png
+    filename: seasons-of-scrum.png
+
+
+Title: The critical role of leadership and change management with agile transformations
+Size(new): 2
+First image: /uploads/Hrishikesh-Karekar.jpeg
+Second image: /uploads/ad-spoke-and-wheel.png
+Third image: 
+Fourth image: 
+
+    guest-photo: /agile-in-action-minima/uploads/Hrishikesh-Karekar.jpeg
+    filename: Hrishikesh-Karekar.jpeg
+
+    guest-photo: /agile-in-action-minima/uploads/ad-spoke-and-wheel.png
+    filename: ad-spoke-and-wheel.png
+
+
+Title: November 1, 2022 Update
+Size(new): 1
+First image: /uploads/fall-scenery.png
+Second image: 
+Third image: 
+Fourth image: 
+
+    guest-photo: /agile-in-action-minima/uploads/fall-scenery.png
+    filename: fall-scenery.png
+
+
+Title: What makes SCRUM work when done correctly
+Size(new): 3
+First image: /uploads/fred-fowler.jpeg
+Second image: /uploads/ad-spoke-and-wheel.png
+Third image: /uploads/seasons-of-scrum-text.png
+Fourth image: 
+
+    guest-photo: /agile-in-action-minima/uploads/fred-fowler.jpeg
+    filename: fred-fowler.jpeg
+
+    guest-photo: /agile-in-action-minima/uploads/ad-spoke-and-wheel.png
+    filename: ad-spoke-and-wheel.png
+
+    guest-photo: /agile-in-action-minima/uploads/seasons-of-scrum-text.png
+    filename: seasons-of-scrum-text.png
+
+
+Title: Introducing the Seasons of SCRUM
+Size(new): 1
+First image: /uploads/seasons-of-scrum.png
+Second image: 
+Third image: 
+Fourth image: 
+
+    guest-photo: /agile-in-action-minima/uploads/seasons-of-scrum.png
+    filename: seasons-of-scrum.png
+
+
+Title: Leading change with GRIT and communicating with integrity
+Size(new): 1
+First image: /uploads/laurie-sudbrink.jpeg
+Second image: 
+Third image: 
+Fourth image: 
+
+    guest-photo: /agile-in-action-minima/uploads/laurie-sudbrink.jpeg
+    filename: laurie-sudbrink.jpeg
+
+
+Title: Editor's Pick! Embracing a remote work culture
+Size(new): 1
+First image: /uploads/sarah-shewell.jpg
+Second image: 
+Third image: 
+Fourth image: 
+
+    guest-photo: /agile-in-action-minima/uploads/sarah-shewell.jpg
+    filename: sarah-shewell.jpg
+
+
+Title: Dealing with change while operating at the speed of light
+Size(new): 1
+First image: /uploads/nate-greenberg.jpg
+Second image: 
+Third image: 
+Fourth image: 
+
+    guest-photo: /agile-in-action-minima/uploads/nate-greenberg.jpg
+    filename: nate-greenberg.jpg
+
+
+Title: The 2-year anniversary Agile in Action podcast retrospective
+Size(new): 1
+First image: /uploads/reama-dagasan.jpeg
+Second image: 
+Third image: 
+Fourth image: 
+
+    guest-photo: /agile-in-action-minima/uploads/reama-dagasan.jpeg
+    filename: reama-dagasan.jpeg
+
+
+Title: Quality agile delivery with external stakeholders
+Size(new): 1
+First image: /uploads/mark-balbes.jpeg
+Second image: 
+Third image: 
+Fourth image: 
+
+    guest-photo: /agile-in-action-minima/uploads/mark-balbes.jpeg
+    filename: mark-balbes.jpeg
+
+
+Title: How executive leaders create the space for agile to flourish
+Size(new): 1
+First image: /uploads/lyssa-adkins.jpeg
+Second image: 
+Third image: 
+Fourth image: 
+
+    guest-photo: /agile-in-action-minima/uploads/lyssa-adkins.jpeg
+    filename: lyssa-adkins.jpeg
+
+
+Title: Exciting Agile in Action podcast news
 Size(new): 1
 First image: /uploads/balloons2.png
 Second image: 
@@ -1244,19 +1541,19 @@ Fourth image:
 
   <div class="wrapper">
 
-    <h2 class="footer-heading">The Agile in Action Podcast with Bill Raymond</h2>
+    <h2 class="footer-heading">The Agile in Action with Bill Raymond Podcast</h2>
 
     <div class="footer-col-wrapper">
       <div class="footer-col footer-col-1">
         <ul class="contact-list">
-          <li class="p-name">The Agile in Action Podcast with Bill Raymond</li><li><a class="u-email" href="mailto:your-email@example.com">your-email@example.com</a></li></ul>
+          <li class="p-name">The Agile in Action with Bill Raymond Podcast</li><li><a class="u-email" href="mailto:bill.raymond@agileinaction.com">bill.raymond@agileinaction.com</a></li></ul>
       </div>
 
-      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/jekyll"><svg class="svg-icon"><use xlink:href="/agile-in-action-minima/assets/minima-social-icons.svg#github"></use></svg> <span class="username">jekyll</span></a></li><li><a href="https://www.twitter.com/jekyllrb"><svg class="svg-icon"><use xlink:href="/agile-in-action-minima/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">jekyllrb</span></a></li></ul>
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a target="_blank" href="https://www.linkedin.com/in/williamraymond"><svg class="svg-icon"><use xlink:href="/agile-in-action-minima/assets/minima-social-icons.svg#linkedin"></use></svg> <span class="username">williamraymond</span></a></li><li><a target="_blank" href="https://www.twitter.com/billraymonde"><svg class="svg-icon"><use xlink:href="/agile-in-action-minima/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">billraymonde</span></a></li><li><a target="_blank" href="https://github.com/BillRaymond"><svg class="svg-icon"><use xlink:href="/agile-in-action-minima/assets/minima-social-icons.svg#github"></use></svg> <span class="username">BillRaymond</span></a></li></ul>
 </div>
 
       <div class="footer-col footer-col-3">
-        <p>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</p>
+        <p>The Agile in Action Podcast with Bill Raymond serves listeners  with unique perspectives of the people working tirelessly to modernize  how teams work.</p>
       </div>
     </div>
 

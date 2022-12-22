@@ -3,28 +3,42 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Agile in Action with Bill Raymond Podcast</title>
+  <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:creator" content="@billraymonde" />
+    <meta name="twitter:title" content="">
+    <meta name="twitter:image" content="https://billraymond.github.io/agile-in-action-minima/uploads/index.png">
+    <meta property="og:image" content="https://billraymond.github.io/agile-in-action-minima/uploads/index.png">
+    <meta property="og:description" content=""/>
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="675">
   <link rel="icon" href="/agile-in-action-minima/assets/agile-in-action-logos/agile-in-action-favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="/agile-in-action-minima/assets/main.css"></head>
+  <link rel="stylesheet" href="/agile-in-action-minima/assets/main.css">
+</head>
 <body><header class="site-header" role="banner">
 
-  <div class="wrapper"><a class="site-banner" rel="author" href="/agile-in-action-minima/" alt="The Agile in Action Podcast with Bill Raymond">
+  <div class="wrapper"><a class="site-banner" rel="author" href="/agile-in-action-minima/" alt="The Agile in Action with Bill Raymond Podcast">
       <img src="/agile-in-action-minima/assets/agile-in-action-logos/agile-in-action-large-horizontal.png" alt="The Agile in Action Podcast with Bill Raymond logo">
     </a>
 
-    <nav>
-        <ul><li><a class="page-link" href="/agile-in-action-minima/about/">About</a></li><li><a class="page-link" href="/agile-in-action-minima/become-a-guest/">Become a guest</a></li><li><a class="page-link" href="/agile-in-action-minima/contact/">Contact Us</a></li><li><a class="page-link" href="/agile-in-action-minima/wf-01-create-fi/">Create featured images</a></li><li><a class="page-link" href="/agile-in-action-minima/wf-00-guest-images-fi/">Workflow for featured images</a></li></ul>
-      </nav></div>
+    
+      <nav>
+        <ul><li><a class="page-link" href="/agile-in-action-minima/index">Home</a></li><li><a class="page-link" href="/agile-in-action-minima/learn-more">Learn More</a></li><li><a class="page-link" href="/agile-in-action-minima/sponsors">Sponsors</a></li></ul>
+      </nav>
+  </div>
 </header>
 <main class="page-content" aria-label="Content">
       <div class="wrapper">
         <article class="post">
 
   <header class="post-header">
-    <h1 class="post-title">Workflow for featured images</h1>
+    <h1 class="post-title"></h1>
   </header>
 
   <div class="post-content">
-    <p>The code contained in this folder will read uploaded guest images and perform various steps to prepare for creating custom featured images for the website. Some of the functions include:</p>
+    <h2 id="workflow-for-featured-images">Workflow for featured images</h2>
+<p>The code contained in this folder will read uploaded guest images and perform various steps to prepare for creating custom featured images for the website. Some of the functions include:</p>
 
 <ol>
   <li>Resize and crop guest images so they are a perfect square</li>
@@ -33,11 +47,63 @@
   <li>Save the image to a location for reuse</li>
 </ol>
 
-<h2 id="dependencies">Dependencies</h2>
+<h2 id="system-dependencies">System dependencies</h2>
 <ul>
   <li>Imagemagick (should be in the dockerfile)</li>
   <li>Jekyll 4.x (untested with 3.x, but could work)</li>
 </ul>
+
+<h2 id="file-dependencies">File dependencies</h2>
+<ul>
+  <li>A folder in the root Jekyll <code class="language-plaintext highlighter-rouge">_data</code> folder</li>
+  <li>A file in the root Jekyll <code class="language-plaintext highlighter-rouge">_data</code> folder with the name <code class="language-plaintext highlighter-rouge">configs.yml</code></li>
+</ul>
+
+<h2 id="configuration-settings">Configuration settings</h2>
+<p>The <code class="language-plaintext highlighter-rouge">_data/configs.yml</code> file must exist and contain one of the two entries:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wfRecreateGuestImages: true
+or
+wfRecreateGuestImages: false
+</code></pre></div></div>
+
+<p>The setting <code class="language-plaintext highlighter-rouge">wfRecreateGuestImages</code> is to determine how many guest images to generate.</p>
+
+<p>If you set this option to <code class="language-plaintext highlighter-rouge">true</code>:</p>
+<ul>
+  <li>The script will re-create all the guest images from every post</li>
+  <li>The benefit of using this options is when you:
+    <ul>
+      <li>Want to build all the images for the first time</li>
+      <li>Want to re-build the images because of a change to the script</li>
+      <li>Want to test the script’s functionality on a lot of images</li>
+    </ul>
+  </li>
+  <li>Whether you use true or false, if the image(s) already exist, the script will overwrite them</li>
+</ul>
+
+<p>If you set this option to <code class="language-plaintext highlighter-rouge">false</code>:</p>
+<ul>
+  <li>The script will only geneate guest images that belong to today’s post or in the future</li>
+  <li>This should be the default as you should not re-create images at every build</li>
+  <li>The benefit of this option is when you:
+    <ul>
+      <li>Only want to create guest images for current or new posts</li>
+      <li>Want to optimize the build time for your site</li>
+    </ul>
+  </li>
+  <li>Whether you use true or false, if the image(s) already exist, the script will overwrite them</li>
+</ul>
+
+<h2 id="to-test-the-code">To test the code</h2>
+<ol>
+  <li>Run <code class="language-plaintext highlighter-rouge">bundle exec jekyll build --livereload --future</code></li>
+  <li>A new script file is created in <code class="language-plaintext highlighter-rouge">/_site/wf-00-guest-images-fi</code></li>
+  <li>From the root Jekyll folder, run <code class="language-plaintext highlighter-rouge">sh _site/wf-00-guest-images-fi.sh</code></li>
+  <li>Once complete, check the <code class="language-plaintext highlighter-rouge">/uploads/wf-guest-images-fi</code> folder and the new or updated files should exit there</li>
+</ol>
+
+<h2 id="to-update-the-code">To update the code,</h2>
 
 <h2 id="open-the-script-for-testing">Open the script for testing</h2>
 <p><a href="/agile-in-action-minima/wf-00-guest-images-fi/guest-featured-images.sh" target="blank">Open…</a></p>
@@ -62,9 +128,126 @@ exit
 
 <h2 id="test-code">Test code</h2>
 <p>This section can be used to debug locally before adjusting the shell script
-    Title: Exciting Agile in Action podcast news</p>
+    Title: Introducing the Development Manager: A Scrum Master’s best friend</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    guest-photo: /agile-in-action-minima/uploads/balloons2.png
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    guest-photo: /agile-in-action-minima/uploads/ender-yuksel.jpeg
+    filename: ender-yuksel.jpeg
+
+    guest-photo: /agile-in-action-minima/uploads/martin-lohmann.jpeg
+    filename: martin-lohmann.jpeg
+
+    guest-photo: /agile-in-action-minima/uploads/seasons-of-scrum-text.png
+    filename: seasons-of-scrum-text.png
+
+    guest-photo: /agile-in-action-minima/uploads/ad-spoke-and-wheel.png
+    filename: ad-spoke-and-wheel.png
+
+
+Title: The Importance of psychological safety in the workplace
+
+    guest-photo: /agile-in-action-minima/uploads/richard-mclean.jpeg
+    filename: richard-mclean.jpeg
+
+    guest-photo: /agile-in-action-minima/uploads/ad-spoke-and-wheel.png
+    filename: ad-spoke-and-wheel.png
+
+
+Title: Update for November 2022
+
+    guest-photo: /agile-in-action-minima/uploads/holiday-dinner-v2.png
+    filename: holiday-dinner-v2.png
+
+
+Title: Update for November 2022
+
+    guest-photo: /agile-in-action-minima/uploads/holiday-dinner-v2.png
+    filename: holiday-dinner-v2.png
+
+
+Title: Starting in a new company as a Scrum Master
+
+    guest-photo: /agile-in-action-minima/uploads/aysegul-onal.jpeg
+    filename: aysegul-onal.jpeg
+
+    guest-photo: /agile-in-action-minima/uploads/ad-spoke-and-wheel.png
+    filename: ad-spoke-and-wheel.png
+
+    guest-photo: /agile-in-action-minima/uploads/seasons-of-scrum.png
+    filename: seasons-of-scrum.png
+
+
+Title: The critical role of leadership and change management with agile transformations
+
+    guest-photo: /agile-in-action-minima/uploads/Hrishikesh-Karekar.jpeg
+    filename: Hrishikesh-Karekar.jpeg
+
+    guest-photo: /agile-in-action-minima/uploads/ad-spoke-and-wheel.png
+    filename: ad-spoke-and-wheel.png
+
+
+Title: November 1, 2022 Update
+
+    guest-photo: /agile-in-action-minima/uploads/fall-scenery.png
+    filename: fall-scenery.png
+
+
+Title: What makes SCRUM work when done correctly
+
+    guest-photo: /agile-in-action-minima/uploads/fred-fowler.jpeg
+    filename: fred-fowler.jpeg
+
+    guest-photo: /agile-in-action-minima/uploads/ad-spoke-and-wheel.png
+    filename: ad-spoke-and-wheel.png
+
+    guest-photo: /agile-in-action-minima/uploads/seasons-of-scrum-text.png
+    filename: seasons-of-scrum-text.png
+
+
+Title: Introducing the Seasons of SCRUM
+
+    guest-photo: /agile-in-action-minima/uploads/seasons-of-scrum.png
+    filename: seasons-of-scrum.png
+
+
+Title: Leading change with GRIT and communicating with integrity
+
+    guest-photo: /agile-in-action-minima/uploads/laurie-sudbrink.jpeg
+    filename: laurie-sudbrink.jpeg
+
+
+Title: Editor's Pick! Embracing a remote work culture
+
+    guest-photo: /agile-in-action-minima/uploads/sarah-shewell.jpg
+    filename: sarah-shewell.jpg
+
+
+Title: Dealing with change while operating at the speed of light
+
+    guest-photo: /agile-in-action-minima/uploads/nate-greenberg.jpg
+    filename: nate-greenberg.jpg
+
+
+Title: The 2-year anniversary Agile in Action podcast retrospective
+
+    guest-photo: /agile-in-action-minima/uploads/reama-dagasan.jpeg
+    filename: reama-dagasan.jpeg
+
+
+Title: Quality agile delivery with external stakeholders
+
+    guest-photo: /agile-in-action-minima/uploads/mark-balbes.jpeg
+    filename: mark-balbes.jpeg
+
+
+Title: How executive leaders create the space for agile to flourish
+
+    guest-photo: /agile-in-action-minima/uploads/lyssa-adkins.jpeg
+    filename: lyssa-adkins.jpeg
+
+
+Title: Exciting Agile in Action podcast news
+
+    guest-photo: /agile-in-action-minima/uploads/balloons2.png
     filename: balloons2.png
 
 
@@ -481,19 +664,19 @@ Title: Team topologies and an obsession over a rapid flow of change
 
   <div class="wrapper">
 
-    <h2 class="footer-heading">The Agile in Action Podcast with Bill Raymond</h2>
+    <h2 class="footer-heading">The Agile in Action with Bill Raymond Podcast</h2>
 
     <div class="footer-col-wrapper">
       <div class="footer-col footer-col-1">
         <ul class="contact-list">
-          <li class="p-name">The Agile in Action Podcast with Bill Raymond</li><li><a class="u-email" href="mailto:your-email@example.com">your-email@example.com</a></li></ul>
+          <li class="p-name">The Agile in Action with Bill Raymond Podcast</li><li><a class="u-email" href="mailto:bill.raymond@agileinaction.com">bill.raymond@agileinaction.com</a></li></ul>
       </div>
 
-      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/jekyll"><svg class="svg-icon"><use xlink:href="/agile-in-action-minima/assets/minima-social-icons.svg#github"></use></svg> <span class="username">jekyll</span></a></li><li><a href="https://www.twitter.com/jekyllrb"><svg class="svg-icon"><use xlink:href="/agile-in-action-minima/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">jekyllrb</span></a></li></ul>
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a target="_blank" href="https://www.linkedin.com/in/williamraymond"><svg class="svg-icon"><use xlink:href="/agile-in-action-minima/assets/minima-social-icons.svg#linkedin"></use></svg> <span class="username">williamraymond</span></a></li><li><a target="_blank" href="https://www.twitter.com/billraymonde"><svg class="svg-icon"><use xlink:href="/agile-in-action-minima/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">billraymonde</span></a></li><li><a target="_blank" href="https://github.com/BillRaymond"><svg class="svg-icon"><use xlink:href="/agile-in-action-minima/assets/minima-social-icons.svg#github"></use></svg> <span class="username">BillRaymond</span></a></li></ul>
 </div>
 
       <div class="footer-col footer-col-3">
-        <p>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</p>
+        <p>The Agile in Action Podcast with Bill Raymond serves listeners  with unique perspectives of the people working tirelessly to modernize  how teams work.</p>
       </div>
     </div>
 
