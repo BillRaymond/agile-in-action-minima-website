@@ -75,10 +75,10 @@ convert fi-template.png `# load template background image`\
 -size 405x195 caption:'with Bill Raymond\nFounder, Agile in Action Podcast' `# List the guest names for the podcast`\
 -geometry +550+446 `# Set the x and y position of the guest names`\
 -composite `# Add guest names to the image`\
-+write ../uploads/wf-featured-images/2022-11-22-update-for-november-2002-no-play.png \
++write ../uploads/wf-featured-images/2022-11-22-update-for-november-2022-no-play.png \
 -page +972+448 fi-play-icon.png `# load play icon image`\
 -layers flatten \
-../uploads/wf-featured-images/2022-11-22-update-for-november-2002.png
+../uploads/wf-featured-images/2022-11-22-update-for-november-2022.png
 
 echo “* FINISH Update for November 2022”
 
@@ -100,10 +100,10 @@ convert fi-template.png `# load template background image`\
 -size 405x195 caption:'with Bill Raymond\nFounder, Agile in Action Podcast' `# List the guest names for the podcast`\
 -geometry +550+446 `# Set the x and y position of the guest names`\
 -composite `# Add guest names to the image`\
-+write ../uploads/wf-featured-images/2022-11-22-update-for-november-2002 2-no-play.png \
++write ../uploads/wf-featured-images/2022-11-22-update-for-november-2002-no-play.png \
 -page +972+448 fi-play-icon.png `# load play icon image`\
 -layers flatten \
-../uploads/wf-featured-images/2022-11-22-update-for-november-2002 2.png
+../uploads/wf-featured-images/2022-11-22-update-for-november-2002.png
 
 echo “* FINISH Update for November 2022”
 
