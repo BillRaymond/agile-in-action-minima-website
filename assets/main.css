@@ -682,6 +682,10 @@ nav ul {
   list-style-type: none;
   margin: 0;
 }
+nav ul .page-link-current {
+  color: #012072;
+  font-weight: bold;
+}
 
 .small-guest-boxes {
   border-top: 1px solid grey;
